@@ -33,7 +33,6 @@ def findError(x_next,x):
 
 def scalarMult(x,y):
         summ=0
-        print(x,y)
         for i in range(len(x)):
                 summ+=x[i]*y[i]
         return summ
