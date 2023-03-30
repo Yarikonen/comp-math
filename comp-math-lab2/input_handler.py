@@ -1,6 +1,7 @@
 from output_handler import print_gap,print_small_gap
 from functions import get_function_by_index, get_system_by_index,get_dimensions_of_system_by_index
 import solver
+import numpy as np
 def input_method():
         print_gap()
         print("Choose method:")

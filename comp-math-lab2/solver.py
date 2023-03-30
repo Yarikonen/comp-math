@@ -1,5 +1,5 @@
 from functions import derivative, check_if_monotonic,check_if_not_equals_zero,partial_derivative
-from visualizer import draw_function,draw_answ
+from visualizer import draw_function,draw_answ,draw_implicit_function
 from output_handler import print_root_exists,print_number_of_roots,print_speed,print_if_converges
 import numpy as np
 def solve(method,left,right,f):
@@ -17,7 +17,7 @@ def solve(method,left,right,f):
             print(answ)
 
             draw_function(f, left-left*2,right+right*2)
-            draw_answ(newton(f,begin[0],0.001))
+            draw_answ(answ,0)
         case "Secant":
             print_if_converges(check_if_converge_with_newton(f,left,right))
             begin=find_start_for_newton(f,left,right)
@@ -30,14 +30,18 @@ def solve(method,left,right,f):
 
 
             draw_function(f, left-left*2,right+right*2)
-            draw_answ(secant(f,begin[0],begin[0]+0.01,0.001))
+            draw_answ(answ,0)
         
    
 def solve_systems(system,x0):
-    if(check_if_converge_with_fixed_point(system,x0)):
-            
-            print("Сойдётся по точке")
-    print(fixed_point_iteration(system,x0,0.001))
+    print_if_converges(check_if_converge_with_fixed_point(system,x0))
+
+    answ = fixed_point_iteration(system,x0,0.001)
+    print(answ)
+    
+    draw_implicit_function(system,answ[0]-5, answ[0]+5)
+
+    draw_answ(answ[0],answ[1])
 
 
 def compute_phi_i_for_fixed_point_iteration(system,x,i,lambd):
