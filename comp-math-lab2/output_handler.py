@@ -17,12 +17,23 @@ def print_number_of_roots(bool):
         if(bool):
                 print("Number of roots is 1")
         else:
-                print("Number of roots is more than 1")
+                print("Number of roots may be more than 1")
 def print_root_exists():
         print("Root exists")
         print_small_gap()
 def print_if_converges(bool):
         if(bool):
-                print("Converges")
+                print("Converges nicely")
         else:
-                print("Doesn't converge")
+                print("Might not converge")
+def print_answ(answ, iteration, f_in_answ):
+        print("Your answer is: ")
+        print(answ)
+        if(iteration==1001):
+                print("Iterations limit exceeded")
+                return
+        print(f"Was found in {iteration} iterations")
+        print_small_gap()
+        print("f(x) in your answer is: ")
+        print(f_in_answ)
+        print_small_gap()

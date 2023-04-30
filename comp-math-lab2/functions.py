@@ -1,15 +1,15 @@
 
 import numpy as np
-def system1(x,y):
-    return list([np.power(x,2) + np.power(y,2) -4, np.power(y,2) -x ])
+def system1(x):
+    return np.array([x[0]**3+x[1]*x[0]+8,x[0]+x[1]+4])
 def system2(x):
     return( np.array([0.1*x[0]**2+x[0]+0.2*x[1]**2-0.3,0.2*x[0]**2+x[1]+0.1*x[0]*x[1]-0.7]))
 def f1(x):
-    return (x**2)
+    return ((x+5)**2 + x**3 + x**2 + 1)
 def f2(x):
     return( np.sin(x)*x + x**2)
 def f3(x):
-    return(np.sqrt(x) + x*np.cos(x))
+    return(x*np.sin(x))
 def derivative(f, x):
     return((f(x+0.0001)-f(x))/0.0001)
 def partial_derivative(f, x, i):
@@ -28,7 +28,6 @@ def check_if_monotonic(f,a,b):
             return False
     return True
 def check_if_not_equals_zero(f,a,b):
-
     for i in range(a*10,b*10):
         if(f(i)!=0):
             return False
@@ -47,4 +46,6 @@ def get_system_by_index(index):
         return system2
 def get_dimensions_of_system_by_index(index):
     if(index==1):
+        return 2
+    if(index==2):
         return 2
